@@ -1,39 +1,39 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { Company } from './Components/pages/Company'
-import { Contact } from './Components/pages/Contact'
-import { Home } from './Components/pages/Home'
-import { NewProject } from './Components/pages/NewProject'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Container } from "./Components/Organisms/Container";
+import { Company } from "./Components/pages/Company";
+import { Contact } from "./Components/pages/Contact";
+import { Footer } from "./Components/Organisms/Footer";
+import { Home } from "./Components/pages/Home";
+import { Navbar } from "./Components/Organisms/Navbar";
+import { NewProject } from "./Components/pages/NewProject";
+import { Projects } from "./Components/pages/Projects";
 
-function App() {
-
-
+export const App = () => {
   return (
     <Router>
       <ul>
-        <div>
-        <Link to='/'>Home</Link>
-        <Link to='/contact'>Contato</Link>
-        <Link to='/company'>Empresa</Link>
-        <Link to='/newproject'>Novo</Link>
-        </div>
+        <Navbar />
       </ul>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route  path="/company">
-          <Company />
-        </Route>
-        <Route  path="/contact">
-          <Contact />
-        </Route>
-        <Route  path="/newproject">
-          <NewProject />
-        </Route>
+        <Container>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/company">
+            <Company />
+          </Route>
+          <Route path="/projects">
+            <Projects />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/newproject">
+            <NewProject />
+          </Route>
+        </Container>
       </Switch>
-      <p>Footer</p>
+      <Footer />
     </Router>
-  )
-}
-
-export default App
+  );
+};
