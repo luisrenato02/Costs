@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1200px;
-  display: flex;
-  justify-content: space-between;
+  width: 450px;
   margin: 0 auto;
-  flex-wrap: wrap;
+  padding: 3em;
+
+  h1 {
+    margin-bottom: 5em;
+  }
+
+  p {
+    color: #7b7b7b;
+  }
 `;
