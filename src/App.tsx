@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Container } from "./Components/Organisms/Container";
 import { Company } from "./Components/pages/Company";
 import { Contact } from "./Components/pages/Contact";
 import { Footer } from "./Components/Organisms/Footer";
@@ -15,23 +14,21 @@ export const App = () => {
         <Navbar />
       </ul>
       <Switch>
-        <Container>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/company">
-            <Company />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/newproject">
-            <NewProject />
-          </Route>
-        </Container>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/company">
+          <Company />
+        </Route>
+        <Route path="/projects">
+          <Projects />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route path="/newproject">
+          <NewProject />
+        </Route>
       </Switch>
       <Footer />
     </Router>

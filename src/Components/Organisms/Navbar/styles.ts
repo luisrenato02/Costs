@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   background-color: #222;
   margin: 0 0;
   padding: 1em;
-
+  height: 15vh;
   ul {
     display: flex;
     list-style: none;

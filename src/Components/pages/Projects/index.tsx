@@ -1,3 +1,5 @@
+import { Container } from "./styles";
+
 export const Projects = () => {
-  return <div>Projects</div>;
+  return <Container>Projects</Container>;
 };

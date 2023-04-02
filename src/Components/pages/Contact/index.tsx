@@ -1,5 +1,6 @@
 import React from "react";
+import { Container } from "./styles";
 
 export const Contact = () => {
-  return <div>Contact</div>;
+  return <Container>Contact</Container>;
 };

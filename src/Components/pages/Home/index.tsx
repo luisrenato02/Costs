@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Container } from "./styles";
 
 export const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
-
+  return <Container>Home</Container>;
+};

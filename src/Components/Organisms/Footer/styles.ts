@@ -5,6 +5,7 @@ export const FooterContainer = styled.footer`
   color: #fff;
   padding: 3em;
   text-align: center;
+  height: 20vh;
 
   ul {
     display: flex;

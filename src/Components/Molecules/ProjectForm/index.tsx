@@ -1,16 +1,27 @@
+import { Input } from "../../Atomos/Input";
+import { Select } from "../../Atomos/Select";
+import { SubmitButton } from "../../Atomos/SubmitButton";
+import { FormContainer } from "./styles";
+
 export const ProjectForm = () => {
   return (
-    <form>
-      <div>
-        <input type="text" placeholder="Insira o nome do projeto" />
-        <input type="number" placeholder="Insira o orçamento total" />
-        <select name="category_id">
-          <option disabled>Selecione a categoria</option>
-        </select>
-      </div>
-      <div>
-        <input type="submit" value="Criar Projeto" />
-      </div>
-    </form>
+    <FormContainer>
+      <Input
+        text="Nome do projeto"
+        type="text"
+        name="name"
+        placeholder="Insira o nome do projeto"
+        value={"kk"}
+        handleOnChange={() => console.log("kkk")}
+      />
+      <Input
+        text="Orçamento do projeto"
+        type="number"
+        name="budget"
+        placeholder="Insira o orçamento total"
+      />
+      <Select text={"Selecione a categoria"} name="category_id" options={""} />
+      <SubmitButton text="Criar projeto" />
+    </FormContainer>
   );
 };

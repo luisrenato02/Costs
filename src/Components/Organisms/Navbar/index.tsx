@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import logo192 from "../../../public/logo192.png";
+import logo from "../../../public/logo.png";
 import { Nav } from "./styles";
 
 export const Navbar = () => {
   return (
     <Nav>
       <Link to="/">
-        <img src={logo192} alt="" />
+        <img src={logo} alt="" />
       </Link>
       <ul>
         <li>
@@ -20,6 +20,9 @@ export const Navbar = () => {
         </li>
         <li>
           <Link to="/company">Empresa</Link>
+        </li>
+        <li>
+          <Link to="/newproject">Novo Projeto</Link>
         </li>
       </ul>
     </Nav>

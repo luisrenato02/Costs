@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Container } from "./styles";
 
 export const Company = () => {
-  return (
-    <div>Company</div>
-  )
-}
-
+  return <Container>Company</Container>;
+};
