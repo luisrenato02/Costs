@@ -1,13 +1,13 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { ProjectForm } from "../../Molecules/ProjectForm";
+import { useHistory } from "react-router-dom";
+import { ProjectForm } from "../../Organisms/ProjectForm";
 import { Container } from "./styles";
+import { IProject } from "../../../interfaces/Project";
 
 export const NewProject = () => {
-  const navigate = useNavigate();
+  const navigate = useHistory();
 
-  const createPost = (project) => {
-    project.cost = 0;
+  const createPost = (project: IProject) => {
+    project.budget = 0;
     project.services = [];
 
     fetch("http://localhost:5000/projects", {
@@ -19,8 +19,7 @@ export const NewProject = () => {
     })
       .then((resp) => resp.json)
       .then((data) => {
-        console.log(data);
-        navigate("/home");
+        navigate.push("/projects", { message: "Projeto criado com sucesso!" });
       })
       .catch((err) => console.error(err));
   };

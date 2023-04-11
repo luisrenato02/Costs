@@ -5,8 +5,8 @@ type InputProps = {
   text: string;
   name: string;
   placeholder: string;
-  handleOnChange?: () => void;
-  value?: string;
+  handleOnChange?: (e: string | number) => void;
+  value: string | number;
 };
 
 export const Input = ({

@@ -1,17 +1,5 @@
+import { ISelectProps, Ioption } from "../../../interfaces/Select";
 import * as S from "./styles";
-
-interface Ioptions {
-  id: number;
-  name: string;
-}
-
-type SelectProps = {
-  text: string;
-  name: string;
-  options: Ioptions[];
-  handleOnChange?: () => void;
-  value?: string;
-};
 
 export const Select = ({
   text,
@@ -19,13 +7,13 @@ export const Select = ({
   handleOnChange,
   value,
   options,
-}: SelectProps) => {
+}: ISelectProps) => {
   return (
     <S.FormControl>
       <S.Label htmlFor={name}>{text}</S.Label>
       <S.Select name={name} onChange={handleOnChange} value={value}>
         <option>Selecione uma opção</option>
-        {options.map((option) => (
+        {options.map((option: Ioption) => (
           <option value={option.id} key={option.id}>
             {option.name}
           </option>
