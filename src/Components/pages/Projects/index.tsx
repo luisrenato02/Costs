@@ -26,19 +26,29 @@ export const Projects = () => {
       .then((data) => setProjects(data))
       .catch((err) => console.error(err));
   }, []);
+  console.log(projects[0]);
   return (
-    <>
+    <div style={{ height: "65vh" }}>
       <S.Container>
         <h1>Meus Projetos</h1>
         <LinkedButton label="Novo Projeto" to="/newproject" />
       </S.Container>
-      {message && <Message type="warning" message={message} />}
+      {message && <Message type="success" message={message} />}
       <S.ContainerProjects>
         {projects.length > 0 &&
           projects.map((project, index) => (
-            <Card key={index}>{project.name}</Card>
+            <Card
+              key={index}
+              id={project.id}
+              name={project.name}
+              budget={0}
+              category={project.category ?? { id: null, name: "" }}
+              handleRemove={function (): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
           ))}
       </S.ContainerProjects>
-    </>
+    </div>
   );
 };

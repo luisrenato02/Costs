@@ -3,6 +3,7 @@ export interface ICategory {
   name: string;
 }
 export interface IProject {
+  id: number;
   name: string;
   budget: number;
   category: ICategory;

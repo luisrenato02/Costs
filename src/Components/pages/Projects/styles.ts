@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 0 auto;
   padding: 3em;
-  height: 65vh;
   display: flex;
   justify-content: space-between;
   h1 {
@@ -16,6 +15,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerProjects = styled.div`
+  display: flex;
   justify-content: flex-start;
   padding: 2em;
 `;
