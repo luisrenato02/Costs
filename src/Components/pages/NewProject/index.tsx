@@ -1,10 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ProjectForm } from "../../Organisms/ProjectForm";
 import { Container } from "./styles";
 import { IProject } from "../../../interfaces/Project";
 
 export const NewProject = () => {
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
   const createPost = (project: IProject) => {
     project.budget = 0;
@@ -19,7 +19,7 @@ export const NewProject = () => {
     })
       .then((resp) => resp.json)
       .then((data) => {
-        navigate.push("/projects", { message: "Projeto criado com sucesso!" });
+        navigate("/projects");
       })
       .catch((err) => console.error(err));
   };

@@ -6,6 +6,7 @@ export const ContainerCard = styled.div`
   border-radius: 5px;
   width: 100%;
   margin: 0.5%;
+  align-content: center;
 
   h3 {
     background-color: #222;

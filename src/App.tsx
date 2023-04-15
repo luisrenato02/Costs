@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Company } from "./Components/pages/Company";
 import { Contact } from "./Components/pages/Contact";
 import { Footer } from "./Components/Organisms/Footer";
@@ -13,23 +13,13 @@ export const App = () => {
       <ul>
         <Navbar />
       </ul>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/company">
-          <Company />
-        </Route>
-        <Route path="/projects">
-          <Projects />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/newproject">
-          <NewProject />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/company" element={<Company />}></Route>
+        <Route path="/projects" element={<Projects />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/newproject" element={<NewProject />}></Route>
+      </Routes>
       <Footer />
     </Router>
   );
