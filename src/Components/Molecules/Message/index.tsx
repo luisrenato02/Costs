@@ -25,7 +25,7 @@ export const Message = ({ type, message }: IMessage) => {
       <S.MessageDiv
         style={{
           backgroundColor:
-            type === "sucess"
+            type === "success"
               ? "#78F57C"
               : type === "error"
               ? "#F0796B"
@@ -35,7 +35,7 @@ export const Message = ({ type, message }: IMessage) => {
         <p
           style={{
             color:
-              type === "sucess"
+              type === "success"
                 ? "#23AD00"
                 : type === "error"
                 ? "#E53E14"

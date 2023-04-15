@@ -26,9 +26,9 @@ export const Projects = () => {
       .then((data) => setProjects(data))
       .catch((err) => console.error(err));
   }, []);
-  console.log(projects[0]);
+
   return (
-    <div style={{ height: "65vh" }}>
+    <div>
       <S.Container>
         <h1>Meus Projetos</h1>
         <LinkedButton label="Novo Projeto" to="/newproject" />

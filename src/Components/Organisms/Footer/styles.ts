@@ -6,6 +6,11 @@ export const FooterContainer = styled.footer`
   padding: 3em;
   text-align: center;
   height: 20vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
 
   ul {
     display: flex;

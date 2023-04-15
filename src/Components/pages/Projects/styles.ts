@@ -15,7 +15,11 @@ export const Container = styled.div`
 `;
 
 export const ContainerProjects = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-evenly;
   padding: 2em;
+  width: 100%;
+
 `;

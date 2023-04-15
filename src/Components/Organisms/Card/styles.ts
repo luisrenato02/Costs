@@ -4,7 +4,7 @@ export const ContainerCard = styled.div`
   padding: 1em;
   border: 1px solid #7a7a7a;
   border-radius: 5px;
-  width: 24%;
+  width: 100%;
   margin: 0.5%;
 
   h3 {
