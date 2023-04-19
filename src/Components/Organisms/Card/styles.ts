@@ -17,8 +17,19 @@ export const ContainerCard = styled.div`
   ul {
     list-style: none;
     li {
-      text-align: center;
+      text-align: start;
       font-weight: bold;
     }
   }
+`;
+export const Category = styled.div`
+  display: flex;
+`;
+
+export const Circle = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  border: 1px solid gray;
+  margin: 7px 5px 0 0;
 `;

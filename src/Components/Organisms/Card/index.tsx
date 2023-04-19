@@ -27,7 +27,23 @@ export const Card = ({
         <ul>
           <li>ID: {id}</li>
           <li>Orçamento: {budget}</li>
-          <li>{category.name}</li>
+          <li>
+            <S.Category>
+              <S.Circle
+                style={{
+                  backgroundColor:
+                    id === 1
+                      ? "lime"
+                      : id === 2
+                      ? "red"
+                      : id === 3
+                      ? "pink"
+                      : "blue",
+                }}
+              />
+              {category.name}
+            </S.Category>
+          </li>
         </ul>
       </div>
 

@@ -1,12 +1,6 @@
 {
   "projects": [
     {
-      "name": "Estruturação ",
-      "budget": 0,
-      "services": [],
-      "id": 1
-    },
-    {
       "name": "Implantar",
       "budget": 0,
       "category": {
@@ -25,66 +19,6 @@
       },
       "services": [],
       "id": 11
-    },
-    {
-      "category": {
-        "id": "3",
-        "name": "Desing"
-      },
-      "name": "Luis",
-      "budget": 0,
-      "services": [],
-      "id": 12
-    },
-    {
-      "name": "Aloisio Chulapa",
-      "budget": 0,
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "services": [],
-      "id": 13
-    },
-    {
-      "name": "Nino Paraíba",
-      "budget": 0,
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "services": [],
-      "id": 14
-    },
-    {
-      "name": "Julia Alvarez",
-      "budget": 0,
-      "category": {
-        "id": "3",
-        "name": "Desing"
-      },
-      "services": [],
-      "id": 15
-    },
-    {
-      "name": "Luisão ",
-      "budget": 0,
-      "category": {
-        "id": "3",
-        "name": "Desing"
-      },
-      "services": [],
-      "id": 16
-    },
-    {
-      "name": "Aoa",
-      "budget": 0,
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "services": [],
-      "id": 17
     }
   ],
   "categories": [

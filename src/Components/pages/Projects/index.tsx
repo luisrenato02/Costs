@@ -5,10 +5,12 @@ import { LinkedButton } from "../../Atomos/LinkedButton";
 import { Card } from "../../Organisms/Card";
 import { useEffect, useState } from "react";
 import { IProject } from "../../../interfaces/Project";
+import { Loading } from "../../Atomos/Loading";
 
 export const Projects = () => {
   const location = useLocation();
   const [projects, setProjects] = useState<IProject[]>([]);
+  const [removeloading, setRemoveLoading] = useState(false);
   let message = "";
 
   if (location.state) {
@@ -16,15 +18,20 @@ export const Projects = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:5000/projects", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => setProjects(data))
-      .catch((err) => console.error(err));
+    setTimeout(() => {
+      fetch("http://localhost:5000/projects", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          setProjects(data);
+          setRemoveLoading(true);
+        })
+        .catch((err) => console.error(err));
+    }, 500);
   }, []);
 
   return (
@@ -49,6 +56,7 @@ export const Projects = () => {
             />
           ))}
       </S.ContainerProjects>
+      {!removeloading && <Loading />}
     </div>
   );
 };
