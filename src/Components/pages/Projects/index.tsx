@@ -10,11 +10,11 @@ import { Loading } from "../../Atomos/Loading";
 export const Projects = () => {
   const location = useLocation();
   const [projects, setProjects] = useState<IProject[]>([]);
+  const [message, setMessage] = useState<string>("");
   const [removeloading, setRemoveLoading] = useState(false);
-  let message = "";
 
   if (location.state) {
-    message = location.state.message;
+    setMessage(location.state.message);
   }
 
   useEffect(() => {
@@ -34,6 +34,19 @@ export const Projects = () => {
     }, 500);
   }, []);
 
+  const removeProject = (id: number) => {
+    fetch(`http://localhost:5000/projects/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((resp) => resp.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id));
+        setMessage("Projeto removido com sucesso!");
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div>
       <S.Container>
@@ -50,9 +63,7 @@ export const Projects = () => {
               name={project.name}
               budget={0}
               category={project.category ?? { id: null, name: "" }}
-              handleRemove={function (): void {
-                throw new Error("Function not implemented.");
-              }}
+              handleRemove={() => removeProject(project.id)}
             />
           ))}
       </S.ContainerProjects>

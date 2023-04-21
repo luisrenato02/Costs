@@ -7,7 +7,7 @@ interface CardProps {
   name: string;
   budget: number;
   category: ICategory;
-  handleRemove: () => void;
+  handleRemove: (id: number) => void;
 }
 export const Card = ({
   id,
@@ -55,7 +55,7 @@ export const Card = ({
         />
         <ActionButton
           label={"Excluir"}
-          onClick={() => console.log("2")}
+          onClick={() => handleRemove(id)}
           icon={<Plus />}
         />
       </div>

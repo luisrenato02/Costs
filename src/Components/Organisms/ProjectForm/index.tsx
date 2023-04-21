@@ -27,7 +27,6 @@ export const ProjectForm = ({ handleSubmit, projectData }: IProjectForm) => {
   }, []);
 
   const submit = (e: any) => {
-    debugger;
     e.preventDefault();
     handleSubmit(project);
   };

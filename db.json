@@ -1,26 +1,5 @@
 {
-  "projects": [
-    {
-      "name": "Implantar",
-      "budget": 0,
-      "category": {
-        "id": "1",
-        "name": "Implantação"
-      },
-      "services": [],
-      "id": 2
-    },
-    {
-      "name": "Luis",
-      "budget": 0,
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "services": [],
-      "id": 11
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": 1,
