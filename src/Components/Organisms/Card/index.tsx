@@ -2,6 +2,7 @@ import { ICategory } from "../../../interfaces/Project";
 import { ActionButton } from "../../Atomos/ActionButton";
 import { Plus, Edit } from "tabler-icons-react";
 import * as S from "./styles";
+import { useNavigate } from "react-router-dom";
 interface CardProps {
   id: number;
   name: string;
@@ -16,6 +17,7 @@ export const Card = ({
   category,
   handleRemove,
 }: CardProps) => {
+  const navigate = useNavigate();
   return (
     // Criar um modal para Editar e o botão de deletar fazer uma função de post para deletar o item
 
@@ -50,7 +52,7 @@ export const Card = ({
       <div style={{ display: "flex" }}>
         <ActionButton
           label={"Editar"}
-          onClick={() => console.log("1")}
+          onClick={() => navigate(`/projects/${id}`)}
           icon={<Edit />}
         />
         <ActionButton

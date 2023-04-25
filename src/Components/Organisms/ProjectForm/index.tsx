@@ -6,8 +6,8 @@ import { FormContainer } from "./styles";
 import { ICategory, IProject } from "../../../interfaces/Project";
 
 interface IProjectForm {
-  handleSubmit: (project: IProject) => true;
-  projectData: IProject;
+  handleSubmit: (project: IProject) => void;
+  projectData?: IProject;
 }
 
 export const ProjectForm = ({ handleSubmit, projectData }: IProjectForm) => {
@@ -37,6 +37,7 @@ export const ProjectForm = ({ handleSubmit, projectData }: IProjectForm) => {
   const handleChangeCost = (value: number) => {
     setProject({ ...project, budget: value.target.value });
   };
+
   const handleCategory = (value: ICategory) => {
     setProject({
       ...project,
@@ -74,7 +75,7 @@ export const ProjectForm = ({ handleSubmit, projectData }: IProjectForm) => {
         handleOnChange={(e: ICategory) => handleCategory(e)}
         value={project.category?.id ?? 0}
       />
-      <SubmitButton text="Criar projeto" />
+      <SubmitButton text={projectData ? "Editar Projeto" : "Criar projeto"} />
     </FormContainer>
   );
 };

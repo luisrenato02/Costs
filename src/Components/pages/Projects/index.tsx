@@ -1,15 +1,18 @@
 import { Message } from "../../Molecules/Message";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import * as S from "./styles";
 import { LinkedButton } from "../../Atomos/LinkedButton";
 import { Card } from "../../Organisms/Card";
 import { useEffect, useState } from "react";
 import { IProject } from "../../../interfaces/Project";
 import { Loading } from "../../Atomos/Loading";
+import { ProjectForm } from "../../Organisms/ProjectForm";
 
 export const Projects = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [projects, setProjects] = useState<IProject[]>([]);
+  const [openEdit, setOpenEdit] = useState(false);
   const [message, setMessage] = useState<string>("");
   const [removeloading, setRemoveLoading] = useState(false);
 
@@ -61,7 +64,7 @@ export const Projects = () => {
               key={index}
               id={project.id}
               name={project.name}
-              budget={0}
+              budget={project.budget}
               category={project.category ?? { id: null, name: "" }}
               handleRemove={() => removeProject(project.id)}
             />

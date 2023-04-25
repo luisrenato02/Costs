@@ -1,5 +1,16 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Luis",
+      "budget": "0134",
+      "category": {
+        "id": "3",
+        "name": "Desing"
+      },
+      "services": [],
+      "id": 1
+    }
+  ],
   "categories": [
     {
       "id": 1,
