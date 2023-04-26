@@ -2,7 +2,7 @@ import * as S from "./styles";
 interface ActionButtonProps {
   label: string;
   onClick: () => void;
-  icon: JSX.Element;
+  icon?: JSX.Element;
 }
 export const ActionButton = ({ label, icon, onClick }: ActionButtonProps) => {
   return (

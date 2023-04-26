@@ -8,4 +8,5 @@ export interface IProject {
   budget: number;
   category: ICategory;
   services: string[];
+  cost: number;
 }

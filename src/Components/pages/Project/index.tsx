@@ -4,9 +4,14 @@ import { IProject } from "../../../interfaces/Project";
 import { ProjectForm } from "../../Organisms/ProjectForm";
 import * as S from "./styles";
 import { Loading } from "../../Atomos/Loading";
+import { ActionButton } from "../../Atomos/ActionButton";
+import { Message } from "../../Molecules/Message";
 export const Project = () => {
   const { id } = useParams();
   const [project, setProject] = useState<IProject>();
+  const [openEdit, setOpenEdit] = useState(false);
+  const [message, setMessage] = useState<string>("");
+  const [type, setType] = useState<string>("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,16 +27,69 @@ export const Project = () => {
     }, 500);
   }, [id]);
 
+  const editPost = (project: IProject) => {
+    if (project.budget < project.cost) {
+      setMessage("O orçamento não pode ser menor que o custo");
+      setType("error");
+    } else {
+      fetch(`http://localhost:5000/projects/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(project),
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          setProject(data);
+          setOpenEdit(false);
+          setMessage("Projeto editado com sucesso!");
+          setType("success");
+        })
+        .catch((err) => {
+          console.error(err);
+          setMessage("Erro ao enviar edição!");
+          setType("error");
+        });
+    }
+  };
+
   return (
-    <S.Container>
-      {project ? (
-        <>
-          <h1>{project?.name}</h1>
-          <ProjectForm projectData={project} handleSubmit={console.log("kk")} />
-        </>
+    <>
+      {message && <Message message={message} type={type} />}
+      <S.ProjectInfo>
+        <h2>{project?.name}</h2>
+        <ActionButton
+          label={openEdit ? "Voltar" : "Editar"}
+          onClick={() => setOpenEdit(!openEdit)}
+        />
+      </S.ProjectInfo>
+      {!openEdit ? (
+        <div>
+          <S.Ul>
+            <li>
+              <span>Categoria:</span>
+              {project?.category.name}
+            </li>
+            <li>
+              <span>Total de Orçamento:</span>
+              {project?.budget}
+            </li>
+            <li>
+              <span>Total Utilizado:</span>
+              {project?.cost}
+            </li>
+          </S.Ul>
+        </div>
       ) : (
-        <Loading />
+        <S.Container>
+          {project ? (
+            <ProjectForm projectData={project} handleSubmit={editPost} />
+          ) : (
+            <Loading />
+          )}
+        </S.Container>
       )}
-    </S.Container>
+    </>
   );
 };
