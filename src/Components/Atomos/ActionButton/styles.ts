@@ -9,6 +9,7 @@ export const Button = styled.div`
   color: #222;
   align-items: center;
   height: 50px;
+  width: auto;
 
   :hover {
     background-color: #222;

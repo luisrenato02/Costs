@@ -10,6 +10,7 @@ export const Project = () => {
   const { id } = useParams();
   const [project, setProject] = useState<IProject>();
   const [openEdit, setOpenEdit] = useState(false);
+  const [openService, setOpenService] = useState(false);
   const [message, setMessage] = useState<string>("");
   const [type, setType] = useState<string>("");
 
@@ -51,6 +52,7 @@ export const Project = () => {
           setMessage("Erro ao enviar edição!");
           setType("error");
         });
+      setMessage("");
     }
   };
 
@@ -80,6 +82,15 @@ export const Project = () => {
               {project?.cost}
             </li>
           </S.Ul>
+          <S.Services>
+            <h2>Adicione um serviço</h2>
+            <ActionButton
+              label={openService ? "Voltar" : "Adicionar Serviço"}
+              onClick={() => setOpenService(!openService)}
+            />
+          </S.Services>
+          {openService && <h1>Formulário de Serviço</h1>}
+          <div>serviços</div>
         </div>
       ) : (
         <S.Container>
